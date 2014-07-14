@@ -9,7 +9,7 @@ Scrypt algorithm code was ported from CGMiner version 3.7.2.
 
 ## Zeus ##
 
-	Do NOT run ./autogen.sh
+	./autogen.sh
 	./configure --enable-scrypt --enable-zeus --LEASERIG-STATS
 	make
 
@@ -82,7 +82,7 @@ Many thanks also to sling00 and LinuxETC for providing access to test hardware.
 
 ## Gridseed ##
 
-	Do NOT Run ./autogen.sh
+	./autogen.sh
 	./configure --enable-scrypt --enable-gridseed --LEASERIG-STATS
 	make
 
