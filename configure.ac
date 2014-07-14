@@ -363,10 +363,16 @@ if test "x$zeus" = xyes; then
 fi
 AM_CONDITIONAL([HAS_ZEUS], [test x$zeus = xyes])
 
-# Check whether --leaserig-stats was given.
-#if test "${leaserig_stats+set}" = set; then :
-$as_echo "#define LEASERIG_STATS" >>confdefs.h
-#fi
+stat-select="no"
+
+AC_ARG_ENABLE([leaserig-stats],
+	[AC_HELP_STRING([--enable-leaserig-stats],[Compile support for --stat-select flag (default disabled)])],
+	[stat-select=$enableval]
+	)
+if test "x$stat-select" = xyes; then
+	AC_DEFINE([LEASERIG_STATS], [1], [Defined to 1 if Zeus support is wanted])
+fi
+AM_CONDITIONAL([LEASERIG_STATS], [test x$stat-select = xyes])
 
 curses="auto"
 
@@ -713,6 +719,12 @@ if test "x$zeus" = xyes; then
 	echo "  Zeus.ASICs...........: Enabled"
 else
 	echo "  Zeus.ASICs...........: Disabled"
+fi
+
+if $leaserig_stats; then
+	echo "  LeaseRig-Stats.......: Enabled"
+else
+	echo "  LeaseRig-Stats.......: Disabled"
 fi
 
 if test "x$avalon$avalon2$bab$bflsc$bitforce$bitfury$hashfast$icarus$klondike$knc$modminer$drillbit$minion$cointerra$bitmine_A1$ants1$ants2$spondoolies$gridseed$zeus" = xnononononononononononononononononononono; then
