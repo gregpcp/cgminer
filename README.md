@@ -10,7 +10,7 @@ Scrypt algorithm code was ported from CGMiner version 3.7.2.
 ## Zeus ##
 
 	./autogen.sh
-	./configure --enable-scrypt --enable-zeus --LEASERIG-STATS
+	./configure --enable-scrypt --enable-zeus --enable-leaserig-stats
 	make
 
 The Zeus driver needs to be configured with two runtime options: the number of
@@ -83,7 +83,7 @@ Many thanks also to sling00 and LinuxETC for providing access to test hardware.
 ## Gridseed ##
 
 	./autogen.sh
-	./configure --enable-scrypt --enable-gridseed --LEASERIG-STATS
+	./configure --enable-scrypt --enable-gridseed --enable-leaserig-stats
 	make
 
 Compatibility Note: The Gridseed driver is currently only compatible with Linux,
