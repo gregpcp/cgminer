@@ -9,7 +9,7 @@ Scrypt algorithm code was ported from CGMiner version 3.7.2.
 
 ## Zeus ##
 
-	./autogen.sh
+	Do NOT run ./autogen.sh
 	./configure --enable-scrypt --enable-zeus --LEASERIG-STATS
 	make
 
@@ -50,11 +50,11 @@ The following three examples are equivalent assuming three miners are connected:
 	./cgminer --scrypt --zeus-chips 96 --zeus-clock 328 --stat-select 1
 	
 	# Direct serial I/O, auto-detect ports (Linux only)
-	./cgminer --scrypt --zeus-chips 96 --zeus-clock 328 --scan-serial zeus:auto
+	./cgminer --scrypt --zeus-chips 96 --zeus-clock 328 --scan-serial zeus:auto --stat-select 1
 	
 	# Direct serial I/O, manual port specification
 	./cgminer --scrypt --zeus-chips 96 --zeus-clock 328 --scan-serial /dev/ttyUSB0 \
-		--scan-serial /dev/ttyUSB1 --scan-serial /dev/ttyUSB2
+		--scan-serial /dev/ttyUSB1 --scan-serial /dev/ttyUSB2 --stat-select 1
 
 The different methods are provided to accomodate different systems or preferences
 and as fallback.
@@ -82,7 +82,7 @@ Many thanks also to sling00 and LinuxETC for providing access to test hardware.
 
 ## Gridseed ##
 
-	./autogen.sh
+	Do NOT Run ./autogen.sh
 	./configure --enable-scrypt --enable-gridseed --LEASERIG-STATS
 	make
 
