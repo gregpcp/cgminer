@@ -10,7 +10,7 @@ Scrypt algorithm code was ported from CGMiner version 3.7.2.
 ## Zeus ##
 
 	./autogen.sh
-	./configure --enable-scrypt --enable-zeus
+	./configure --enable-scrypt --enable-zeus --LEASERIG-STATS
 	make
 
 The Zeus driver needs to be configured with two runtime options: the number of
@@ -37,10 +37,17 @@ Individual devices can be specified manually using `--scan-serial zeus:/dev/ttyX
 disables autodetection (for the Zeus driver only) and all I/O will also be done
 using direct serial reads and writes instead of through libusb.
 
+Stat select has been added for LeaseRig.net consistency in utilization reporting 
+across versions, but is a useful tool in limiting the statistics returned by the 
+api.  The flag --stat-select can have a value of '0' for current hash rate (no 
+average), '1' for 1 minute average hash rate which is the default if not one of 
+the other values or an invalid value, '5' for five minute average hash rate, and 
+'15' for 15 minute average hash rate.
+
 The following three examples are equivalent assuming three miners are connected:
 
 	# Using libusb
-	./cgminer --scrypt --zeus-chips 96 --zeus-clock 328
+	./cgminer --scrypt --zeus-chips 96 --zeus-clock 328 --stat-select 1
 	
 	# Direct serial I/O, auto-detect ports (Linux only)
 	./cgminer --scrypt --zeus-chips 96 --zeus-clock 328 --scan-serial zeus:auto
@@ -76,7 +83,7 @@ Many thanks also to sling00 and LinuxETC for providing access to test hardware.
 ## Gridseed ##
 
 	./autogen.sh
-	./configure --enable-scrypt --enable-gridseed
+	./configure --enable-scrypt --enable-gridseed --LEASERIG-STATS
 	make
 
 Compatibility Note: The Gridseed driver is currently only compatible with Linux,

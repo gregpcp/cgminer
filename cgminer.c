@@ -224,6 +224,9 @@ char *opt_icarus_options = NULL;
 char *opt_icarus_timing = NULL;
 float opt_anu_freq = 200;
 #endif
+#ifdef LEASERIG_STATS
+int opt_stat_select = 1;
+#endif
 bool opt_worktime;
 #ifdef USE_AVALON
 char *opt_avalon_options;
@@ -1097,6 +1100,11 @@ static struct opt_table opt_config_table[] = {
 		     set_float_125_to_500, &opt_show_intval, &opt_anu_freq,
 		     "Set AntminerU1 frequency in MHz, range 125-500"),
 #endif
+#ifdef LEASERIG_STATS
+	OPT_WITH_ARG("--stat-select",
+		     opt_set_charp, NULL, &opt_stat_select,
+		     "Choose a specific stat average to api output: 0,1,5,15, default: 1"),
+#endif
 	OPT_WITH_ARG("--api-allow",
 		     opt_set_charp, NULL, &opt_api_allow,
 		     "Allow API access only to the given list of [G:]IP[/Prefix] addresses[/subnets]"),
@@ -1768,6 +1776,9 @@ static char *opt_verusage_and_exit(const char *extra)
 #endif
 #ifdef USE_KNC
 		"KnC "
+#endif
+#ifdef LEASERIG_STATS
+		"LeaseRig-Stats "
 #endif
 #ifdef USE_BAB
 		"BaB "
