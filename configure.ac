@@ -363,16 +363,16 @@ if test "x$zeus" = xyes; then
 fi
 AM_CONDITIONAL([HAS_ZEUS], [test x$zeus = xyes])
 
-stat-select="no"
+statSelect="no"
 
 AC_ARG_ENABLE([leaserig-stats],
 	[AC_HELP_STRING([--enable-leaserig-stats],[Compile support for --stat-select flag (default disabled)])],
-	[stat-select=$enableval]
+	[statSelect=$enableval]
 	)
-if test "x$stat-select" = xyes; then
-	AC_DEFINE([LEASERIG_STATS], [1], [Defined to 1 if Zeus support is wanted])
+if test "x$statSelect" = xyes; then
+	AC_DEFINE([LEASERIG_STATS], [1], [Defined to 1 if stat select support is wanted])
 fi
-AM_CONDITIONAL([LEASERIG_STATS], [test x$stat-select = xyes])
+AM_CONDITIONAL([LEASERIG_STATS], [test "x$statSelect" = xyes])
 
 curses="auto"
 
@@ -721,7 +721,7 @@ else
 	echo "  Zeus.ASICs...........: Disabled"
 fi
 
-if $leaserig_stats; then
+if test "x$statSelect" = xyes; then
 	echo "  LeaseRig-Stats.......: Enabled"
 else
 	echo "  LeaseRig-Stats.......: Disabled"
