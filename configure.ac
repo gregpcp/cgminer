@@ -363,6 +363,10 @@ if test "x$zeus" = xyes; then
 fi
 AM_CONDITIONAL([HAS_ZEUS], [test x$zeus = xyes])
 
+# Check whether --leaserig-stats was given.
+#if test "${leaserig_stats+set}" = set; then :
+$as_echo "#define LEASERIG_STATS" >>confdefs.h
+#fi
 
 curses="auto"
 
