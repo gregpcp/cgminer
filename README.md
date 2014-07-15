@@ -126,7 +126,7 @@ When dual-mining `start_port` will set the listening proxy port of the first gri
 device on the SHA256 instance of cgminer, with additional miners using successive ports.
 The scrypt instance of cgminer will attempt to connect starting at this port.
 
-When dual mining, start the SHA mining instance of cgminer first, wait for it to begin
+When dual mining, start the SHA mining instance of cgmicg	ner first, wait for it to begin
 mining and then start the scrypt version. The second instance will detect that the USB
 ports are in use and will attempt to connect to the first via UDP.
 
@@ -149,4 +149,15 @@ while `--gridseed-override` takes the same format as `--gridseed-options`:
 	--gridseed-freq "<SERIAL>=<FREQ>[,...]"
 
 	--gridseed-override "<SERIAL>:freq=<FREQ>,voltage=<0/1>[,...];<SERIAL>:freq=<FREQ>[,...[;...]]"
+	
+### Raspberry Pi Build Instructions - Raspbian OS ###
+	cd /home/
+	sudo apt-get update
+	sudo apt-get install autoconf libtool libncurses-dev yasm curl libcurl4-openssl-dev pkg-config libudev-dev
+	git clone https://github.com/gregpcp/cgminer
+	cd cgminer
+	./autoconf
+	./configure --enable-scrypt --enable-gridseed --enable-zeus --enable-leaserig-stats
+	make
+	
 
