@@ -2025,7 +2025,7 @@ static void ascstatus(struct io_data *io_data, int asc, bool isjson, bool precom
 	char *status;
 	int numasc = numascs();
 	#ifdef LEASERIG_STATS
-		int *opt_stat_select;
+		int opt_stat_select;
 	#endif
 
 	if (numasc > 0 && asc >= 0 && asc < numasc) {
