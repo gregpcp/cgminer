@@ -2066,7 +2066,7 @@ static void ascstatus(struct io_data *io_data, int asc, bool isjson, bool precom
 		root = api_add_mhs(root, mhsname, &(cgpu->rolling), false);
 		#endif
 		#ifdef LEASERIG_STATS
-		if( opt_stat_select != 0 && opt-stat-select != 5 && opt-stat-select != 15 ){
+		if( opt_stat_select != 0 && opt_stat_select != 5 && opt_stat_select != 15 ){
 			root = api_add_mhs(root, "MHS 1m", &cgpu->rolling1, false);
 		}
 		#else
