@@ -2056,28 +2056,28 @@ static void ascstatus(struct io_data *io_data, int asc, bool isjson, bool precom
 		char mhsname[27];
 		sprintf(mhsname, "MHS %ds", opt_log_interval);
 		#ifdef LEASERIG_STATS
-		if($opt_stat_select == 0){
+		if(opt_stat_select == 0){
 			root = api_add_mhs(root, mhsname, &(cgpu->rolling), false);
 		}
 		#else
 		root = api_add_mhs(root, mhsname, &(cgpu->rolling), false);
 		#endif
 		#ifdef LEASERIG_STATS
-		if($opt_stat_select != 0 && $opt-stat-select != 5 && $opt-stat-select != 15){
+		if(opt_stat_select != 0 && opt-stat-select != 5 && opt-stat-select != 15){
 			root = api_add_mhs(root, "MHS 1m", &cgpu->rolling1, false);
 		}
 		#else
 		root = api_add_mhs(root, "MHS 1m", &cgpu->rolling1, false);
 		#endif
 		#ifdef LEASERIG_STATS
-		if($opt_stat_select == 5){
+		if(opt_stat_select == 5){
 			root = api_add_mhs(root, "MHS 5m", &cgpu->rolling5, false);
 		}
 		#else
 		root = api_add_mhs(root, "MHS 5m", &cgpu->rolling5, false);
 		#endif
 		#ifdef LEASERIG_STATS
-		if($opt_stat_select == 15){
+		if(opt_stat_select == 15){
 			root = api_add_mhs(root, "MHS 15m", &cgpu->rolling15, false);
 		}
 		#else
@@ -2096,14 +2096,14 @@ static void ascstatus(struct io_data *io_data, int asc, bool isjson, bool precom
 			char khsname[27];
 			sprintf(khsname, "KHS %ds", opt_log_interval);
 			#ifdef LEASERIG_STATS
-			if($opt_stat_select == 0){
+			if(opt_stat_select == 0){
 				root = api_add_khs(root, khsname, &khs_rolling, true);
 			}
 			#else
 			root = api_add_khs(root, khsname, &khs_rolling, true);
 			#endif
 			#ifdef LEASERIG_STATS
-			if($opt_stat_select != 0 && $opt-stat-select != 5 && $opt-stat-select != 15){
+			if(opt_stat_select != 0 && opt-stat-select != 5 && opt-stat-select != 15){
 				root = api_add_khs(root, "KHS 1m", &khs_rolling1, true);
 			}
 			#else
@@ -2117,7 +2117,7 @@ static void ascstatus(struct io_data *io_data, int asc, bool isjson, bool precom
 			root = api_add_khs(root, "KHS 5m", &khs_rolling5, true);
 			#endif
 			#ifdef LEASERIG_STATS
-			if($opt_stat_select == 15){
+			if(opt_stat_select == 15){
 				root = api_add_khs(root, "KHS 15m", &khs_rolling15, true);
 			}
 			#else
@@ -2214,28 +2214,28 @@ static void pgastatus(struct io_data *io_data, int pga, bool isjson, bool precom
 		char mhsname[27];
 		sprintf(mhsname, "MHS %ds", opt_log_interval);
 		#ifdef LEASERIG-STATS
-		if($opt_stat_select == 0){
+		if(opt_stat_select == 0){
 			root = api_add_mhs(root, mhsname, &(cgpu->rolling), false);
 		}
 		#else
 		root = api_add_mhs(root, mhsname, &(cgpu->rolling), false);
 		#endif
 		#ifdef LEASERIG-STATS
-		if($opt_stat_select != 0 && $opt-stat-select != 5 && $opt-stat-select != 15){
+		if(opt_stat_select != 0 && opt-stat-select != 5 && opt-stat-select != 15){
 			root = api_add_mhs(root, "MHS 1m", &cgpu->rolling1, false);
 		}
 		#else
 		root = api_add_mhs(root, "MHS 1m", &cgpu->rolling1, false);
 		#endif
 		#ifdef LEASERIG-STATS
-		if($opt_stat_select == 5){
+		if(opt_stat_select == 5){
 			root = api_add_mhs(root, "MHS 5m", &cgpu->rolling5, false);
 		}
 		#else
 		root = api_add_mhs(root, "MHS 5m", &cgpu->rolling5, false);
 		#endif
 		#ifdef LEASERIG-STATS
-		if($opt_stat_select == 15){
+		if(opt_stat_select == 15){
 			root = api_add_mhs(root, "MHS 15m", &cgpu->rolling15, false);
 		}
 		#else
@@ -2251,28 +2251,28 @@ static void pgastatus(struct io_data *io_data, int pga, bool isjson, bool precom
 			char khsname[27];
 			sprintf(khsname, "KHS %ds", opt_log_interval);
 			#ifdef LEASERIG-STATS
-			if($opt_stat_select == 0){
+			if(opt_stat_select == 0){
 				root = api_add_khs(root, khsname, &khs_rolling, true);
 			}
 			#else
 			root = api_add_khs(root, khsname, &khs_rolling, true);
 			#endif
 			#ifdef LEASERIG-STATS
-			if($opt_stat_select != 0 && $opt-stat-select != 5 && $opt-stat-select != 15){
+			if(opt_stat_select != 0 && opt-stat-select != 5 && opt-stat-select != 15){
 				root = api_add_khs(root, "KHS 1m", &khs_rolling1, true);
 			}
 			#else
 			root = api_add_khs(root, "KHS 1m", &khs_rolling1, true);
 			#endif
 			#ifdef LEASERIG-STATS
-			if($opt_stat_select == 5){
+			if(opt_stat_select == 5){
 				root = api_add_khs(root, "KHS 5m", &khs_rolling5, true);
 			}
 			#else
 			root = api_add_khs(root, "KHS 5m", &khs_rolling5, true);
 			#endif
 			#ifdef LEASERIG-STATS
-			if($opt_stat_select == 15){
+			if(opt_stat_select == 15){
 				root = api_add_khs(root, "KHS 15m", &khs_rolling15, true);
 			}
 			#else
