@@ -14,7 +14,7 @@
 #include <windows.h>
 
 #ifndef HAVE_LIBWINPTHREAD
-int nanosleep(const struct timespec *req, struct timespec *rem)
+unsigned int nanosleep(const struct timespec *req, struct timespec *rem)
 {
 	struct timeval tstart;
 	DWORD msecs;
@@ -47,7 +47,7 @@ int nanosleep(const struct timespec *req, struct timespec *rem)
 }
 #endif
 
-int sleep(unsigned int secs)
+unsigned int sleep(unsigned int secs)
 {
 	struct timespec req, rem;
 	req.tv_sec = secs;
