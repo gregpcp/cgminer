@@ -14,7 +14,7 @@
 #include <windows.h>
 
 #ifndef HAVE_LIBWINPTHREAD
-int _EXFUN(nanosleep(const struct timespec *req, struct timespec *rem))
+int _EXFUN(nanosleep(const struct timespec *req, struct timespec *rem), unsigned int)
 {
 	struct timeval tstart;
 	DWORD msecs;
