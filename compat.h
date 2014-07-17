@@ -14,7 +14,7 @@
 #include <windows.h>
 
 #ifndef HAVE_LIBWINPTHREAD
-inline int nanosleep(const struct timespec *req, struct timespec *rem)
+int nanosleep(const struct timespec *req, struct timespec *rem)
 {
 	struct timeval tstart;
 	DWORD msecs;
@@ -47,7 +47,7 @@ inline int nanosleep(const struct timespec *req, struct timespec *rem)
 }
 #endif
 
-inline int sleep(unsigned int secs)
+int sleep(unsigned int secs)
 {
 	struct timespec req, rem;
 	req.tv_sec = secs;
@@ -61,7 +61,7 @@ enum {
 	PRIO_PROCESS		= 0,
 };
 
-inline int setpriority(__maybe_unused int which, __maybe_unused int who, __maybe_unused int prio)
+int setpriority(__maybe_unused int which, __maybe_unused int who, __maybe_unused int prio)
 {
 	/* FIXME - actually do something */
 	return 0;
