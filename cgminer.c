@@ -52,7 +52,8 @@
 char *curly = ":D";
 #endif
 #include <libgen.h>
-#include "compat.h"
+
+/* #include "compat.h"*/
 #include "miner.h"
 #include "bench_block.h"
 #include "scrypt.h"
