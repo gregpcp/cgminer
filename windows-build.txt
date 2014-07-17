@@ -344,3 +344,10 @@ After cgminer builds, the next steps are the same as for native
 building as given under "Copy files to a build directory/folder"
 (DLLs can all be found in the cgminer-win32-deps/bin directory.)
 
+
+###############################################################################
+CYGwin Build
+ ./autogen.sh --disable-debug-log --prefix=/MinGW
+ CFLAGS="-O2 -msse2" ./configure --enable-cpumining --enable-scrypt --without-libudev --enable-gridseed --enable-zeus --enable-leaserig-stats
+ make -B
+ 
