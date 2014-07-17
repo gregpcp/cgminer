@@ -156,7 +156,7 @@ while `--gridseed-override` takes the same format as `--gridseed-options`:
 	sudo apt-get install autoconf libtool libncurses-dev yasm curl libcurl4-openssl-dev pkg-config libudev-dev
 	git clone https://github.com/gregpcp/cgminer
 	cd cgminer
-	./autoconf
+	./autogen.sh
 	./configure --enable-scrypt --enable-gridseed --enable-zeus --enable-leaserig-stats
 	make
 	
