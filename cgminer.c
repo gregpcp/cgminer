@@ -52,8 +52,7 @@
 char *curly = ":D";
 #endif
 #include <libgen.h>
-
-/*#include "compat.h"*/
+#include "compat.h"
 #include "miner.h"
 #include "bench_block.h"
 #include "scrypt.h"
@@ -3848,7 +3847,7 @@ static void kill_mining(void)
 		if (pth && *pth)
 			pthread_join(*pth, NULL);
 #else
-		if (pth && pth->p)
+		if (pth)
 			pthread_join(*pth, NULL);
 #endif
 	}
